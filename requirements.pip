@@ -1,0 +1,4 @@
+django==1.2
+Pygments==1.2.2
+textile==2.1.4
+django-tagging==0.3

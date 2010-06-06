@@ -1,0 +1,13 @@
+{% extends 'kb/snippet_base.html' %}
+
+{% block page_title %}All Snippets{% endblock page_title %}
+
+{% block primary %}
+
+    {% include "kb/snippets.html" %}
+
+    {{ page }}
+    {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}">Previous page</a>{% endif %}
+    {% if page.has_next_page %}<a href="?page={{ page.next_page_number }}">Next page</a>{% endif %}
+
+{% endblock primary %}

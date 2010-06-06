@@ -1,0 +1,25 @@
+{% extends 'kb/language_base.html' %}
+
+{% block css %}<link rel="stylesheet" href="{{MEDIA_URL}}css/pygments.css" type="text/css">{% endblock css %}
+
+{% block title %} | Languages | {{ language.name }}{% endblock title %}
+
+{% block page_title %}{{ object.name }}{% endblock page_title %}
+
+{% block breadcrumbs %}{{ block.super }} &raquo; {{ language.name }}{% endblock breadcrumbs %}
+
+{% block primary %}
+    {% if object_list %}
+        <ul class="snippetList">
+            {% for snippet in object_list %}
+                <li>
+                    <a href="{{ snippet.get_absolute_url }}">{{snippet.title}}</a> - 
+                    <a href="{{ snippet.language.get_absolute_url }}">{{ snippet.language.name }}</a> - 
+                    {{snippet.date_created|timesince}} ago
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No snippets for this language.</p>
+    {% endif %}
+{% endblock primary %}

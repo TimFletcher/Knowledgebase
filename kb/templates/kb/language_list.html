@@ -1,0 +1,18 @@
+{% extends 'kb/language_base.html' %}
+
+{% block page_title %}All Languages{% endblock page_title %}
+
+{% block primary %}
+    <ul class="languageList">
+        {% for language in object_list %}
+            <li>
+                <a href="{{ language.get_absolute_url }}">{{ language.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    {{ page }}
+    {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}">Previous page</a>{% endif %}
+    {% if page.has_next_page %}<a href="?page={{ page.next_page_number }}">Next page</a>{% endif %}
+
+{% endblock primary %}

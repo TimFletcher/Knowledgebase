@@ -1,0 +1,9 @@
+<ul class="snippetList">
+    {% for snippet in snippet_list %}
+        <li>
+            <a href="{{ snippet.get_absolute_url }}">{{snippet.title}}</a> - 
+            <a href="{{ snippet.language.get_absolute_url }}">{{ snippet.language.name }}</a> - 
+            {{snippet.date_created|timesince}} ago
+        </li>
+    {% endfor %}
+</ul>

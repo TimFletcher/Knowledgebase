@@ -1,0 +1,129 @@
+/* ------------------------------------------------------------------------ */
+/* Typography */
+/* ------------------------------------------------------------------------ */
+
+body                        {font: 15px/1.5em "Helvetica Neue", Helvetica, Arial, sans-serif; color: #000000; font-weight: 200;}
+p                           {margin: 0 0 21px 0;}
+h1, h2, h3, h4, h5          {line-height: 1.1em; color: #AAAAAA; letter-spacing: 1px;}
+h1                          {font-size: 30px; margin: 0 0 18px 0;}
+h2                          {font-size: 22px; line-height: 28px; margin: 0 0 12px 0;}
+h3                          {font-size: 16px; margin: 21px 0 17px 0;}
+h4                          {font-size: 14px; margin-bottom: 5px;}
+h5                          {font-size: 12px; margin-bottom: 0px; color: #000000; font-family: 'VegurMedium';}
+strong,b                    {font-family: 'VegurMedium';}
+em                          {font-style: italic;}
+ul, ol                      {margin: 0 0 1.5em 2em;}
+ul li                       {list-style-type: disc;}
+ol li                       {list-style-type: decimal;}
+blockquote                  {margin: 22px 0 22px 25px; padding: 0 0 0 7px; font-style: italic; color: #000000; border-left: 3px solid #B03024;}
+a                           {color: #B03024; text-decoration: none;}
+a:hover                     {text-decoration: underline;}
+img                         {display: block;}
+
+/* ------------------------------------------------------------------------ */
+/* Main CSS */
+/* ------------------------------------------------------------------------ */
+
+body                        {border: 0; margin: 0; background: #F5F5F5;}
+#header                     {float: left; margin: 15px 0 30px 0; width: 100%;}
+#container			        {margin: 0 auto; width: 960px;}
+#primary			        {float: left; width: 680px; padding: 0 50px 0 0px;}
+#secondary			        {float: left; width: 230px; /*position: fixed; margin: 126px 0 0 730px;*/}
+#secondary h2			    {color: #222A33; background-color: #AAAAAA; padding: 2px 10px 1px 10px; font-size: 15px; margin: 0;}
+#secondary h2			    {-moz-border-radius-topright: 6px; -moz-border-radius-topleft: 6px; -webkit-border-top-right-radius: 6px; -webkit-border-top-left-radius: 6px; -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.75); -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.75);}
+#secondary .block		    {padding: 12px 10px 11px 10px; margin-bottom: 21px; -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.75); -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5); /*background-color: #28313c;*/}
+#secondary .block		    {-moz-border-radius-bottomright: 6px; -moz-border-radius-bottomleft: 6px; -webkit-border-bottom-right-radius: 6px; -webkit-border-bottom-left-radius: 6px;}
+#secondary .block a.tweet   {display: block;}
+#secondary .block span      {display: block; color: #FFFFFF; font-size: 12px;}
+#secondary ul				{padding: 0px; margin: 0;}
+#secondary ul li			{margin-bottom: 7px; list-style-type: none;}
+#secondary ul li a			{height: 21px; padding-top: 3px;}
+#secondary ul li.last	    {margin-bottom: 0px; list-style-type: none;}
+.webkit                     {padding-left: 34px; -webkit-transition: margin 0.2s linear; display: block;}
+.webkit:hover               {margin-left: 5px; -webkit-transition: margin 0.25s linear; font-family: 'VegurMedium';}
+
+/* ------------------------------------------------------------------------ */
+/* Navigation */
+/* ------------------------------------------------------------------------ */
+
+#menu                       {margin: 0; overflow: hidden; margin-bottom: 18px;}
+#menu li                    {float: left; list-style-type: none; margin-right: 10px;}
+#menu a                     {padding: 10px 20px 8px 20px; background: #000000; display: inline-block; -webkit-border-radius: 10px; font-size: 12px; text-transform: uppercase; color: #DDDDDD;}
+#menu a:hover               {color: #B03024; text-decoration: none;}
+
+/* ------------------------------------------------------------------------ */
+/* Snippet Detail */
+/* ------------------------------------------------------------------------ */
+
+#secondary dt               {float: left; font-weight: bold; margin-right: 5px;}
+/*#secondary dd               {margin-left: px;}*/
+
+/* ------------------------------------------------------------------------ */
+/* Forms */
+/* ------------------------------------------------------------------------ */
+
+form                                        {float: left; padding-top: 21px;}
+form .fields                                {margin: 0; float: left;}
+form li                                     {list-style-type: none;}
+form .field                                 {width: 470px; padding-bottom: 15px; clear: both; display: block; float: left;}
+form li.buttons                             {padding-left: 110px;}
+label                                       {cursor: default;}
+label.desc                                  {width: 180px; padding: 1px 20px 0 0; display: block; font-weight: bold; float: left; text-align: right;}
+label.error, #formErrors                    {color: #B03024;}
+div.element                                 {float: right; width: 360px; position: relative;}
+span.req                                    {display: inline; font-weight: bold; color: #B03024; float: none; padding-left: 3px;}                        
+.text input, textarea                       {font: 15px/21px "VegurLight",helvetica,sans-serif; padding: 3px 5px; border: none; margin: 0; background-color: #DEDEDE; display: block}
+.text input, textarea                       {-moz-border-radius: 2px; -webkit-border-radius: 2px;}
+textarea                                    {height: 130px; display: block;}
+.small input, .small textarea               {width: 100px;}
+.medium input, .medium textarea             {width: 220px;}
+.large input, .large textarea               {width: 350px;}
+input:focus, textarea:focus                 {background-color: #FFFFFF;}
+form .error input, form .error textarea     {background-color: #FFC9BB;}
+.errorlist li                               {-moz-border-radius: 6px; -webkit-border-radius: 6px; background-color: #FFFFFF; padding: 4px 10px 0;}
+.commentAjaxLoader                          {float: left; margin-top: 4px;}
+#commentWaiting                             {margin: 1px 0 0 5px; display: inline-block;}
+
+/* ------------------------------------------------------------------------ */
+/* Buttons and links styled as buttons */
+/* ------------------------------------------------------------------------ */
+
+.buttons a, .buttons button{
+    color: #DEDEDE; 
+    float:left;
+    margin:0 7px 0 0;
+    border:1px solid #dedede;
+    font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+    font-size: 15px;
+    line-height:130%;
+    text-decoration:none;
+    cursor:pointer;
+    padding:2px 7px 3px;
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    background: #B03024;
+    border: none;
+    position: relative;
+}
+
+.buttons a                      {line-height: 19px;} /* To make FF line up */
+button::-moz-focus-inner        {border: 0;padding: 0;}
+.buttons a:hover,
+.buttons button:hover           {color: #FFFFFF;}
+.buttons a:active,
+.buttons button:active          {top: 1px;}
+
+/* ------------------------------------------------------------------------ */
+/* Miscellaneous */
+/* ------------------------------------------------------------------------ */
+
+.clearingDiv                {clear: both;}
+.center                     {margin: 0 auto; display: block;}
+.centerText                 {text-align: center;}
+.imgCaption                 {font-size: 12px; text-align: center; margin: 5px 0 20px 0; display: block;}
+.small                      {font-size: 75%;}
+.border 		 		    {padding: 3px; border: 1px solid #CCCCCC; background: #FFFFFF;}

@@ -1,0 +1,36 @@
+{% extends 'kb/snippet_base.html' %}
+{% load tagging_tags %}
+
+{% block css %}<link rel="stylesheet" href="{{MEDIA_URL}}css/pygments.css" type="text/css">{% endblock css %}
+
+{% block page_title %}{{ object.title }}{% endblock page_title %}
+
+{% block breadcrumbs %}{{ block.super }} &raquo; {{ object.title }}{% endblock breadcrumbs %}
+
+{% block primary %}
+    <div class="syntax">{{ object.highlighted_code|safe }}</div>
+{% endblock primary %}
+
+{% block secondary %}
+    {{ object.description_html|safe }}
+    <dl>
+        <dt>Author:</dt>
+		{% if object.author.get_full_name %}
+	        <dd>{{ object.author.get_full_name }}</dd>
+		{% else %}
+	        <dd>{{ object.author.username }}</dd>
+		{% endif %}
+
+        <dt>Posted:</dt>
+        <dd>{{ object.date_created|date:"jS F Y" }}</dd>
+        <dt>Language:</dt>
+        <dd><a href="{{ object.language.get_absolute_url }}">{{ object.language }}</a></dd>
+        <dt>Tags:</dt>
+        <dd>
+            {% tags_for_object object as tags %}
+            {% for tag in tags %}
+                <a href="{% url kb_tag_detail tag.id %}">{{ tag.name }}</a>{% if not forloop.last %},{% endif %}
+            {% endfor %}
+        </dd>
+    </dl>
+{% endblock secondary %}

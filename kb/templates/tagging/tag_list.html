@@ -1,0 +1,19 @@
+{% extends 'tagging/tag_base.html' %}
+
+{% block page_title %}All Tags{% endblock page_title %}
+{% block title %} | All Tags{% endblock title %}
+
+{% block primary %}
+    <ul class="snippetList">
+        {% for tag in object_list %}        
+            <li>
+                <a href="{% url kb_tag_detail tag.id %}">{{tag.name}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    {{ page }}
+    {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}">Previous page</a>{% endif %}
+    {% if page.has_next_page %}<a href="?page={{ page.next_page_number }}">Next page</a>{% endif %}
+
+{% endblock primary %}

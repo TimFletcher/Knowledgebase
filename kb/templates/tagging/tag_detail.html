@@ -1,0 +1,28 @@
+{% extends 'tagging/tag_base.html' %}
+
+{% block page_title %}Snippets Tagged with '{{ tag }}'{% endblock page_title %}
+
+{% block breadcrumbs %}{{ block.super }} &raquo; {{ tag }}{% endblock breadcrumbs %}
+
+{% block primary %}
+	
+	{% if object_list %}
+	    <ul class="snippetList">
+	        {% for snippet in object_list %}        
+	            <li>
+	                <a href="{{ snippet.get_absolute_url }}">{{ snippet.title }}</a> - 
+	                <a href="{{ snippet.language.get_absolute_url }}">{{ snippet.language.name }}</a> - 
+	                {{snippet.date_created|timesince}} ago
+	            </li>
+	        {% endfor %}
+	    </ul>
+	{% else %}
+		<p>There are no snippets tagged with '{{ tag }}'</p>
+	{% endif %}
+
+    
+    {# {{ page }} #}
+    {# {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}">Previous page</a>{% endif %} #}
+    {# {% if page.has_next_page %}<a href="?page={{ page.next_page_number }}">Next page</a>{% endif %} #}
+
+{% endblock primary %}
