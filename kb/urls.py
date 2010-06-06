@@ -17,6 +17,7 @@ snippet_archive_dict = {
     'queryset': snippets,
     'date_field': 'date_created',
     'template_object_name': 'snippet_list',
+    'num_latest': 50
 }
 tag_info_dict = {
     'queryset': Tag.objects.all(),
