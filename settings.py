@@ -45,7 +45,8 @@ MEDIA_URL = 'http://kb.timothyfletcher.com/media/'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/admin/'
+# This is a symbolic link to /usr/lib/python2.5/site-packages/django/contrib/admin/media
+ADMIN_MEDIA_PREFIX = '/media/admin/' 
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '%@e0eq5rc%_!ktf3nz$-nh0y=&dddt))u0$2ms08u$42_n=s#c'
