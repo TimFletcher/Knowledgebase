@@ -7,13 +7,13 @@ class SnippetAdmin(admin.ModelAdmin):
     exclude             = ('author', 'slug')
     date_hierarchy      = 'date_created'
     ordering            = ('-date_created',)
-    list_display        = ('title', 'language', 'view_on_site', 'edit')
+    list_display        = ('title', 'language', 'status', 'view_on_site', 'edit')
     list_filter         = ('language',)
     search_fields       = ('title', 'description', 'code')
     list_display_links  = ('title', 'edit')
     radio_fields        = {'language': admin.VERTICAL}
     
-    # list_editable       = ('title', 'language')
+    list_editable       = ('status',)
     # list_per_page       = 10
     # form                = AdminForm
 
@@ -28,7 +28,7 @@ class SnippetAdmin(admin.ModelAdmin):
             'fields': ('title', 'description', 'code')
         }),
         ('Metadata', {
-            'fields': ('language', 'tags')
+            'fields': ('language', 'tags', 'status')
         })
     )
 

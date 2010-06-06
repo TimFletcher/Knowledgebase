@@ -3,6 +3,7 @@ from tagging.fields import TagField
 from django.contrib.auth.models import User
 from pygments import formatters, highlight, lexers
 import textile
+from managers import LiveSnippetManager, SearchableManager
 
 class WithDate(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
@@ -35,6 +36,15 @@ class Language(WithDate):
 # ============================================================================
 
 class Snippet(WithDate):
+
+    DRAFT = 'Draft'
+    PUBLISHED = 'Published'
+    
+    STATUS_CHOICES = (
+        (DRAFT, 'Draft'),
+        (PUBLISHED, 'Published'),
+    )
+
     author           = models.ForeignKey(User)
     title            = models.CharField(max_length=200)
     slug             = models.SlugField(unique=True)
@@ -43,6 +53,7 @@ class Snippet(WithDate):
     description_html = models.TextField(editable=False)
     code             = models.TextField()
     highlighted_code = models.TextField(editable=False)
+    status           = models.CharField(choices=STATUS_CHOICES, max_length=20, default='Published')
     tags             = TagField()
 
     class Meta:
@@ -50,6 +61,9 @@ class Snippet(WithDate):
 
     def __unicode__(self):
         return self.title
+
+    objects = LiveSnippetManager()
+    # search = SearchableManager
     
     def highlight(self):
         return highlight(self.code,
@@ -61,7 +75,6 @@ class Snippet(WithDate):
         return 'Edit &raquo;'
     edit.allow_tags = True
     edit.short_description = 'Edit snippet'
-
 
     def save(self, force_insert=False, force_update=False):
         self.description_html = textile.textile(self.description.encode('utf-8'),

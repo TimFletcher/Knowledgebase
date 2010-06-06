@@ -8,43 +8,14 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         
-        # Adding model 'Language'
-        db.create_table('kb_language', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('date_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(unique=True, max_length=50, db_index=True)),
-            ('language_code', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('mime_type', self.gf('django.db.models.fields.CharField')(max_length=100)),
-        ))
-        db.send_create_signal('kb', ['Language'])
-
-        # Adding model 'Snippet'
-        db.create_table('kb_snippet', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('date_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-            ('author', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-            ('title', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(unique=True, max_length=50, db_index=True)),
-            ('language', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['kb.Language'])),
-            ('description', self.gf('django.db.models.fields.TextField')()),
-            ('description_html', self.gf('django.db.models.fields.TextField')()),
-            ('code', self.gf('django.db.models.fields.TextField')()),
-            ('highlighted_code', self.gf('django.db.models.fields.TextField')()),
-            ('tags', self.gf('tagging.fields.TagField')()),
-        ))
-        db.send_create_signal('kb', ['Snippet'])
+        # Adding field 'Snippet.status'
+        db.add_column('kb_snippet', 'status', self.gf('django.db.models.fields.CharField')(default='Published', max_length=20), keep_default=False)
 
 
     def backwards(self, orm):
         
-        # Deleting model 'Language'
-        db.delete_table('kb_language')
-
-        # Deleting model 'Snippet'
-        db.delete_table('kb_snippet')
+        # Deleting field 'Snippet.status'
+        db.delete_column('kb_snippet', 'status')
 
 
     models = {
@@ -106,6 +77,7 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'language': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['kb.Language']"}),
             'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '50', 'db_index': 'True'}),
+            'status': ('django.db.models.fields.CharField', [], {'default': "'Published'", 'max_length': '20'}),
             'tags': ('tagging.fields.TagField', [], {}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '200'})
         }

@@ -6,7 +6,7 @@ from tagging.models import Tag
 import settings
 
 # Data for generic views
-snippets = Snippet.objects.all()
+snippets = Snippet.objects.live.all()
 language_info_dict = {
     'queryset': Language.objects.all(),
 }

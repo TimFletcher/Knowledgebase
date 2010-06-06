@@ -1,0 +1,2 @@
+Fix home page to show all snippets
+Add search via search manager
