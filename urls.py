@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
-import settings
+from django.conf import settings
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -10,11 +10,8 @@ urlpatterns = patterns('',
 
 # Serve static files for local dev only
 if settings.DEBUG:
-    urlpatterns += patterns(
-        '', (
-            r'^site_media/(?P<path>.*)$',
-            'django.views.static.serve', {
-                'document_root': '/users/tim/Sites/kb/media'
-            }
-        ),
+    urlpatterns += patterns('',
+        (r'^media/(?P<path>.*)$','django.views.static.serve', {
+            'document_root': settings.MEDIA_ROOT
+        }),
     )

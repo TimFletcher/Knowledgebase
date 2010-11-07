@@ -1,5 +1,6 @@
-django==1.2
+django==1.2.3
 Pygments==1.2.2
 textile==2.1.4
 django-tagging==0.3
 south
+git+http://github.com/robhudson/django-debug-toolbar.git

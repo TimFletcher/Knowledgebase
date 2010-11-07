@@ -1,8 +1,9 @@
+{% load template_utils_tags %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
 
 <html lang="en"> 
-<head> 
-    
+<head>
+
 {# Meta Tags #}
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 <meta name="title" content=""> 
@@ -11,7 +12,7 @@
 <meta name="author" content="Tim Fletcher"> 
 
 {# CSS #}
-<link rel="stylesheet" href="{{MEDIA_URL}}css/reset.css" type="text/css">
+<link rel="stylesheet" href="{{MEDIA_URL}}css/fonts.css" type="text/css">
 <link rel="stylesheet" href="{{MEDIA_URL}}css/screen.css" type="text/css">
 {% block css %}{% endblock css %}
 
@@ -24,27 +25,19 @@
 </head> 
 <body>
 <div id="container">
-    <div id="header">
-        <h1><a href="/">KB</a></h1>
-        {% block nav %}
-            <ul id="menu">
-                <li><a href="{% url kb_snippet_list %}">Snippets</a></li>
-                <li><a href="{% url kb_language_list %}">Languages</a></li>
-                <li><a href="{% url kb_tag_list %}">Tags</a></li>
-            </ul>
-        {% endblock nav %}
-        {% block breadcrumbs %}<a href="/">Home</a>{% endblock breadcrumbs %}
-    </div>
-	<div id="primary">
-        <h2>{% block page_title %}This is the home page{% endblock page_title %}</h2>
-        {% block primary %}
-            <p>This is the base template</p>
-        {% endblock primary %}
-    </div>
-    <div id="secondary">
-        {% block secondary %}
-        {% endblock secondary %}
+    <div id="main">
+        <div id="header">
+            {% block nav %}
+                <ul id="menu">
+                    <li><a id="{% active request "^/snippets/|^/$" %}" href="{% url kb_snippet_list %}">Snippets</a></li>
+                    <li><a id="{% active request "^/languages/" %}" href="{% url kb_language_list %}">Languages</a></li>
+                </ul>
+            {% endblock nav %}
+        </div>
+        <div id="primary">
+            {% block primary %}{% endblock %}
+        </div>
     </div>
 </div>
-</body> 
+</body>
 </html>

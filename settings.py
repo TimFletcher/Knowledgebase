@@ -58,36 +58,36 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.load_template_source',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-)
+]
 
 ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates')
 )
-        
-INSTALLED_APPS = (
+
+TEMPLATE_CONTEXT_PROCESSORS = [
+    'django.core.context_processors.auth',
+    'django.core.context_processors.media',
+    'django.core.context_processors.request'
+]
+
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
     'kb',
-    'tagging',
+    'template_utils',
     'south'
-)
+]
 
 # Tagging settings
 FORCE_LOWERCASE_TAGS = True
 MAX_TAG_LENGTH = 30
-
-# Import local development settings
-try:
-    from local_settings import *
-except:
-    sys.stderr.write('Local settings not imported!')
