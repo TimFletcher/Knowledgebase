@@ -5,7 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
-    (r'', include('kb.urls'))
+    (r'', include('knowledgebase.urls'))
 )
 
 # Serve static files for local dev only
