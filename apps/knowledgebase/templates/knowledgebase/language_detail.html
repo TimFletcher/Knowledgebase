@@ -1,0 +1,15 @@
+{% extends 'knowledgebase/base.html' %}
+
+{% block css %}<link rel="stylesheet" href="{{MEDIA_URL}}css/pygments.css" type="text/css">{% endblock css %}
+
+{% block title %} | Languages | {{ object.name }}{% endblock title %}
+
+{% block primary %}
+    <h1>{{ object.name }}</h1>
+    {% with object.snippets.all as snippet_list %}
+        {% include "knowledgebase/_snippets.html" %}
+        {{ page }}
+        {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}">Previous page</a>{% endif %}
+        {% if page.has_next_page %}<a href="?page={{ page.next_page_number }}">Next page</a>{% endif %}
+    {% endwith %}
+{% endblock primary %}
